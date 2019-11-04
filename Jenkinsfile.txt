@@ -1,0 +1,19 @@
+﻿pipeline {
+	agent none
+	stages{
+		stages(‘Example Build’) {
+			steps {
+			echo ‘Hello World from Jim’()
+			}
+		}
+		stage(‘Example Deploy’) {
+			when {
+				triggeredBy	“TimerTrigger”
+				}
+			steps {
+				echo ‘Deploying’()
+				}
+			}
+		}
+	}
+
